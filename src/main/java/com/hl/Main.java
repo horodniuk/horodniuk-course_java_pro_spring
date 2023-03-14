@@ -1,12 +1,7 @@
 package com.hl;
 
-
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class Main {
     public static void main(String[] args) {
-        log.info("Start");
-        System.out.println("Hello");
+        new Menu().run();
     }
 }
