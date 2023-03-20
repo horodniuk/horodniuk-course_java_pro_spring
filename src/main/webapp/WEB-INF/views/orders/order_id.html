@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:text-align="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Order ID</th>
+        <td th:text="${order_id.getId()}"></td>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <td th:text="${#temporals.format(order_id.getDate(), 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    <tr>
+        <th>Cost</th>
+        <td th:text="${order_id.getCost()}"></td>
+    </tr>
+    <tr style="
+    text-align: center;
+">
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>Quantity</th>
+    </tr>
+    <tr
+            text-align: center;
+            th:each="product : ${order_id.getProducts()}"
+    >
+        <td th:text="${product.getKey().getId()}"></td>
+        <td th:text="${product.getKey().getName()}"></td>
+        <td th:text="${product.getKey().getCost()}"></td>
+        <td th:text="${product.getValue()}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
