@@ -1,20 +1,18 @@
 package com.hl.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = {"id"})
+@Builder
 public class Product {
     private Long id;
     private String name;
-    private BigDecimal cost;
+    private BigDecimal price;
 }
 
