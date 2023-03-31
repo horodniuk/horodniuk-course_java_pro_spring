@@ -7,7 +7,7 @@
 <body>
 <p>Orders number</p>
 <div  th:each="order : ${all_order}">
-            <a th:href="@{/orders/{orderId}(orderId=${order.getKey()})}" th:text="${order.getKey()}">orders</a>
+    <a th:href="@{/orders/{orderId}(orderId=${order.getKey()})}" th:text="${order.getKey()}">orders</a>
 </div>
 
 </body>
