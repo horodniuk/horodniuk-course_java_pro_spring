@@ -16,20 +16,23 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
 
+    @PostMapping
+    public OrderInfoDto createOrder(@RequestBody OrderDto orderDto) {
+        return orderService.addOrder(orderDto);
+    }
 
     @GetMapping
     private List<Order> getAll(){
-        return orderService.getAll();
+        return orderService.getAllOrders();
     }
 
     @GetMapping("/{id}")
-    private Order getById(@PathVariable Long id){
-        return orderService.getById(id);
+    private OrderInfoDto getById(@PathVariable Long id){
+        return orderService.getOrderById(id);
     }
 
-    @PostMapping
-    private OrderInfoDto add(@RequestBody OrderDto orderDto){
-        return orderService.addOrUpdate(orderDto);
+    @DeleteMapping("/{id}")
+    private void deleteById(@PathVariable Long id){
+        orderService.deleteOrder(id);
     }
-
 }

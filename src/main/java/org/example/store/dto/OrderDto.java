@@ -1,12 +1,15 @@
 package org.example.store.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Map;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderDto {
-    private List<ProductDto> orderProducts;
+    private Long orderId;
+    private Map<Long, Integer> products;
 }

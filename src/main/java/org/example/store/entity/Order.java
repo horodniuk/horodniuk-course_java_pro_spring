@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Map;
 
 @Entity
 @Data
@@ -24,7 +24,11 @@ public class Order {
     @Column(name = "cost")
     private BigDecimal cost;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id", referencedColumnName = "order_id")
-    private List<Product> orderProducts;
+    @ElementCollection
+    @CollectionTable(name = "order_product",
+                     joinColumns = @JoinColumn(name = "order_id"))
+    @MapKeyJoinColumn(name = "product_id")
+    @Column(name = "quantity")
+    private Map<Product, Integer> products;
+
 }
