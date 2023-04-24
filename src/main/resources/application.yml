@@ -26,13 +26,12 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 # Logging
-#logging:
-#  level:
-#    org.flywaydb: DEBUG
-#    com.example: INFO
-#    org.springframework.web: INFO
-#  pattern:
-#    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
-#  file:
-#    name: myapp.log
-#    path: /var/log/myapp/
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security.web: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  file:
+    name: myapp.log
+    path: /var/log/myapp/
